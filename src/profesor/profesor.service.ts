@@ -26,10 +26,17 @@ export class ProfesorService {
         return await this.profesorRepository.save(profesor);
     }
     
-    async eliminarProfesor(id: string) {
+    async eliminarProfesorId(id: string) {
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where:{id}});
         if (!profesor)
-          throw new BusinessLogicException("La monitoria con el id proporcionado no fue encontrada", BusinessError.NOT_FOUND);
+          throw new BusinessLogicException("La profesor con el id proporcionado no fue encontrada", BusinessError.NOT_FOUND);
+    
+        await this.profesorRepository.remove(profesor);
+    }
+    async eliminarProfesorCedula(cedula: number) {
+        const profesor: ProfesorEntity = await this.profesorRepository.findOne({where:{cedula}});
+        if (!profesor)
+          throw new BusinessLogicException("La profesor con la cedula proporcionado no fue encontrada", BusinessError.NOT_FOUND);
     
         await this.profesorRepository.remove(profesor);
     }
