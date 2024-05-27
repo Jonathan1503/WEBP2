@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /*Archivo src/main.ts */
 
-import { VersioningType } from '@nestjs/common';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
@@ -13,5 +13,6 @@ async function bootstrap() {
    defaultVersion: '1',
  });
  await app.listen(3000);
+ app.useGlobalPipes(new ValidationPipe());
 }
 bootstrap();

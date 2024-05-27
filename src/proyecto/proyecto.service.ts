@@ -14,7 +14,7 @@ export class ProyectoService {
    
     async crearProyecto(proyecto: ProyectoEntity): Promise<ProyectoEntity> {
         if(proyecto.fechaFin<proyecto.fechaInicio)
-            throw new BusinessLogicException("fecha invalido", BusinessError.PRECONDITION_FAILED);
+            throw new BusinessLogicException("fecha invalida", BusinessError.PRECONDITION_FAILED);
         return await this.proyectoRepository.save(proyecto);
     }
     

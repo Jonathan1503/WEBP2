@@ -16,7 +16,7 @@ import { ProyectoEntity } from './proyecto/proyecto.entity/proyecto.entity';
   imports: [EstudianteModule, ProfesorModule, PropuestaModule, ProyectoModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'localhost',  
       port: 5433,
       username: 'postgres',
       password: 'postgres',
@@ -25,7 +25,8 @@ import { ProyectoEntity } from './proyecto/proyecto.entity/proyecto.entity';
       dropSchema: true,
       synchronize: true,
       keepConnectionAlive: true
-    }),],
+    }),
+   ],
   controllers: [AppController],
   providers: [AppService],
 })
